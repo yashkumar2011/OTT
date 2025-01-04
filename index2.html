@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
+            background-color: #f0f0f0;
+            color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -19,12 +19,13 @@
         .player-container {
             width: 90%;
             max-width: 1000px;
+            border-radius: 15px;
             margin: 20px 0;
         }
         iframe {
             width: 100%;
             height: 500px;
-            background-color: #000;
+            background-color: #fff;
             border: none;
         }
         .episode-list {
@@ -35,13 +36,26 @@
         }
         .episode {
             padding: 10px 20px;
-            background-color: #444;
+            background-color: #ddd;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
         .episode:hover {
-            background-color: #666;
+            background-color: #bbb;
+        }
+        .fullscreen-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .fullscreen-btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -49,7 +63,9 @@
 
     <div class="player-container">
         <iframe id="videoPlayer" src="https://drive.google.com/file/d/12F0a4_ZqscOvtzltHfEZQnmE2xdwbRkC/preview"></iframe>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">Go Fullscreen</button>
     </div>
+
     <div class="episode-list">
         <div class="episode" onclick="playEpisode('https://drive.google.com/file/d/12F0a4_ZqscOvtzltHfEZQnmE2xdwbRkC/preview')">Episode 1</div>
         <div class="episode" onclick="playEpisode('https://drive.google.com/file/d/12ID7NzbWAPyfexSFARczDi2UnyVk99wb/preview')">Episode 2</div>
@@ -65,6 +81,20 @@
         function playEpisode(episode) {
             const videoPlayer = document.getElementById('videoPlayer');
             videoPlayer.src = episode;
+        }
+
+        // Fullscreen functionality
+        function toggleFullscreen() {
+            const videoPlayer = document.getElementById('videoPlayer');
+            if (videoPlayer.requestFullscreen) {
+                videoPlayer.requestFullscreen();
+            } else if (videoPlayer.mozRequestFullScreen) { // Firefox
+                videoPlayer.mozRequestFullScreen();
+            } else if (videoPlayer.webkitRequestFullscreen) { // Chrome, Safari
+                videoPlayer.webkitRequestFullscreen();
+            } else if (videoPlayer.msRequestFullscreen) { // IE/Edge
+                videoPlayer.msRequestFullscreen();
+            }
         }
     </script>
 </body>
