@@ -5,12 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Player</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
         .video-container {
             position: relative;
+            width: 80%;
+            max-width: 800px;
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             background-color: #000;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .video-container iframe {
             width: 100%;
@@ -18,28 +31,28 @@
             position: absolute;
             left: 0;
             top: 0;
-            overflow: hidden;
             border: none;
+            border-radius: 10px;
         }
         .controls {
             position: absolute;
-            bottom: 10px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 10px;
+            gap: 15px;
         }
         .control-button {
             background-color: #ff69b4;
             border: none;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
         .control-button:hover {
             background-color: #ff1493;
@@ -51,8 +64,8 @@
         }
         .control-button svg {
             fill: #fff;
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
         }
     </style>
 </head>
@@ -74,6 +87,11 @@
                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
                 </svg>
             </button>
+            <button class="control-button" onclick="toggleFullScreen()">
+                <svg viewBox="0 0 24 24">
+                    <path d="M7 14h-4v6h6v-2h-4v-4zm10 6h6v-6h-2v4h-4v2zm-10-6v-4h-2v6h6v-2h-4zm10-10v2h4v4h2v-6h-6z"></path>
+                </svg>
+            </button>
         </div>
     </div>
 
@@ -87,6 +105,16 @@
 
         function pauseVideo() {
             player.pause();
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                iframe.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
         }
     </script>
 </body>
