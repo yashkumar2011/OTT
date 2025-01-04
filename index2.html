@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .player-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px 0;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            background-color: #000;
+            border: none;
+        }
+        .episode-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .episode {
+            padding: 10px 20px;
+            background-color: #444;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .episode:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="player-container">
+        <iframe id="videoPlayer" src="https://drive.google.com/file/d/12F0a4_ZqscOvtzltHfEZQnmE2xdwbRkC/preview"></iframe>
+    </div>
+    <div class="episode-list">
+        <div class="episode" onclick="playEpisode('https://drive.google.com/file/d/12F0a4_ZqscOvtzltHfEZQnmE2xdwbRkC/preview')">Episode 1</div>
+        <div class="episode" onclick="playEpisode('https://drive.google.com/file/d/12ID7NzbWAPyfexSFARczDi2UnyVk99wb/preview')">Episode 2</div>
+        <div class="episode" onclick="playEpisode('https://drive.google.com/file/d/12NhkvFTjBmLVcyq_Lcv_b9vO4VDNqdPl/preview')">Episode 3</div>
+        <div class="episode" onclick="playEpisode('https://drive.google.com/file/d/12R46_GIp_opl7OYU9r_w5MOXn_D5POB7/preview')">Episode 4</div>
+        <div class="episode" onclick="playEpisode('https://drive.google.com/file/d/12SYJoNjof-aOHsCqjXe12D5rGhIGNIlT/preview')">Episode 5</div>
+        <div class="episode" onclick="playEpisode('https://drive.google.com/file/d/12XnTA9jkXLlgIQWiDdlVu-wDlz2Z44QQ/preview')">Episode 6</div>
+        <div class="episode" onclick="playEpisode('https://drive.google.com/file/d/12enQrPZp7OYUVAchIkoogegM16iBISkH/preview')">Episode 7</div>
+        <div class="episode" onclick="playEpisode('https://drive.google.com/file/d/12j6ZFyuuaYEarzzd98Gh-mSMEOubwYSj/preview')">Episode 8</div>
+    </div>
+
+    <script>
+        function playEpisode(episode) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            videoPlayer.src = episode;
+        }
+    </script>
+</body>
+</html>
