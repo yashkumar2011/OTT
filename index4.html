@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player</title>
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            border: none;
+        }
+        .controls {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .control-button {
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .control-button:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+        }
+        .control-button:active {
+            background-color: #ff69b4;
+            transform: scale(0.9);
+        }
+        .control-button svg {
+            fill: #fff;
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <iframe src="https://geo.dailymotion.com/player.html?video=x9azgoq"
+            allowfullscreen
+            title="Dailymotion Video Player"
+            allow="web-share">
+        </iframe>
+        <div class="controls">
+            <button class="control-button" onclick="playVideo()">
+                <svg viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"></path>
+                </svg>
+            </button>
+            <button class="control-button" onclick="pauseVideo()">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const iframe = document.querySelector('iframe');
+        const player = new Dailymotion.Player(iframe);
+
+        function playVideo() {
+            player.play();
+        }
+
+        function pauseVideo() {
+            player.pause();
+        }
+    </script>
+</body>
+</html>
