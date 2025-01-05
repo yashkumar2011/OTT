@@ -97,7 +97,7 @@
 
     <script>
         const iframe = document.querySelector('iframe');
-        const player = new Dailymotion.Player(iframe);
+        const player = DM.player(iframe);
 
         function playVideo() {
             player.play();
@@ -117,5 +117,10 @@
             }
         }
     </script>
+
+    <div style="margin-top: 20px; text-align: center;">
+        <h2>Youtube link</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/MkbvlbAkS_4?si=1Ac5a1XkT7AF9ayL&amp;start=6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
 </body>
 </html>
