@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-         iframe{
-            width: 47vw;
-            height: 50vh;
-            border: solid green 3px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     iframe{
+      width: 47vw;
+      height: 50vh;
+      border: solid green 3px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    } 
+    .class{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: green;
+    }
+    .media-player button {
+      margin: 5px;
+      padding: 10px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-        } 
-        .class{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: green;
-        }
-        .media-player button {
-  margin: 5px;
-  padding: 10px;
-  background-color: green;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.media-player button:hover {
-  background-color: green;
-}
-*{
-    margin: 0;
-    padding: 0;
-    /* box-sizing: border-box; */
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.all{
-    margin: -4%;
-    padding: 7%;
-}
-@media screen and (max-width: 600px){
-iframe{
-    width: 100%;
-    height: 30vh;
-}
-}
-    </style>
+    .media-player button:hover {
+      background-color: green;
+    }
+    *{
+      margin: 0;
+      padding: 0;
+      /* box-sizing: border-box; */
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .all{
+      margin: -4%;
+      padding: 7%;
+    }
+    @media screen and (max-width: 600px){
+      iframe{
+        width: 100%;
+        height: 30vh;
+      }
+    }
+  </style>
 </head>
 <body>
+   <div class="all">
    <div class="all">
     <h1 class="class">Watch Lucky Bhaskar for Free</h1>
     <div class="class">
@@ -63,6 +63,7 @@ iframe{
         <button onclick="playAudio()">Play</button>
         <button onclick="pauseAudio()">Pause</button>
         <button onclick="stopAudio()">Stop</button>
+        <button onclick="toggleFullScreen()">Fullscreen</button>
       </div>
    </div>
       <script>
@@ -80,7 +81,15 @@ function stopAudio() {
   audioPlayer.pause();
   audioPlayer.currentTime = 0; // Reset to the beginning
 }
-
+function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  }
+}
       </script>
 </body>
 </html>
