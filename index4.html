@@ -3,124 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Player</title>
+    <title>Document</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+         iframe{
+            width: 47vw;
+            height: 50vh;
+            border: solid green 3px;
+            border-radius: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .video-container {
-            position: relative;
-            width: 80%;
-            max-width: 800px;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            background-color: #000;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            border: none;
-            border-radius: 10px;
-        }
-        .controls {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+
+        } 
+        .class{
             display: flex;
-            gap: 15px;
-        }
-        .control-button {
-            background-color: #ff69b4;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            align-items: center;
+            color: green;
         }
-        .control-button:hover {
-            background-color: #ff1493;
-            transform: scale(1.1);
-        }
-        .control-button:active {
-            background-color: #ff69b4;
-            transform: scale(0.9);
-        }
-        .control-button svg {
-            fill: #fff;
-            width: 24px;
-            height: 24px;
-        }
+        .media-player button {
+  margin: 5px;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.media-player button:hover {
+  background-color: green;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.all{
+    margin: -4%;
+    padding: 7%;
+}
+@media screen and (max-width: 400px){
+iframe{
+    width: 100%;
+    height: auto;
+}
+}
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <iframe src="https://geo.dailymotion.com/player.html?video=x9azgoq"
-            allowfullscreen
-            title="Dailymotion Video Player"
-            allow="web-share">
-        </iframe>
-        <div class="controls">
-            <button class="control-button" onclick="playVideo()">
-                <svg viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"></path>
-                </svg>
-            </button>
-            <button class="control-button" onclick="pauseVideo()">
-                <svg viewBox="0 0 24 24">
-                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
-                </svg>
-            </button>
-            <button class="control-button" onclick="toggleFullScreen()">
-                <svg viewBox="0 0 24 24">
-                    <path d="M7 14h-4v6h6v-2h-4v-4zm10 6h6v-6h-2v4h-4v2zm-10-6v-4h-2v6h6v-2h-4zm10-10v2h4v4h2v-6h-6z"></path>
-                </svg>
-            </button>
-        </div>
+   <div class="all">
+    <h1 class="class">Watch Lucky Bhaskar for Free</h1>
+    <div class="class">
+        <iframe src="https://drive.google.com/file/d/131iUD1Q6YP3KSscOqzuu55Er0Tw_zWfp/preview" frameborder="4"></iframe>
     </div>
+    <div class="media-player class">
+        <audio id="audioPlayer" src="your-audio-file.mp3"></audio>
+        <button onclick="playAudio()">Play</button>
+        <button onclick="pauseAudio()">Pause</button>
+        <button onclick="stopAudio()">Stop</button>
+      </div>
+   </div>
+      <script>
+        const audioPlayer = document.getElementById("audioPlayer");
 
-    <script>
-        const iframe = document.querySelector('iframe');
-        const player = DM.player(iframe);
+function playAudio() {
+  audioPlayer.play();
+}
 
-        function playVideo() {
-            player.play();
-        }
+function pauseAudio() {
+  audioPlayer.pause();
+}
 
-        function pauseVideo() {
-            player.pause();
-        }
+function stopAudio() {
+  audioPlayer.pause();
+  audioPlayer.currentTime = 0; // Reset to the beginning
+}
 
-        function toggleFullScreen() {
-            if (!document.fullscreenElement) {
-                iframe.requestFullscreen().catch(err => {
-                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                });
-            } else {
-                document.exitFullscreen();
-            }
-        }
-    </script>
-
-    <div style="margin-top: 20px; text-align: center;">
-        <h2>Youtube link</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/MkbvlbAkS_4?si=1Ac5a1XkT7AF9ayL&amp;start=6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
+      </script>
 </body>
 </html>
