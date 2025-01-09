@@ -66,7 +66,7 @@
     </style>
 </head>
 <body>
-    <iframe class="ok" id="videoPlayer" src="https://drive.google.com/file/d/1-RJ1FXrVp7CBXMtlf3jrS1kO7ZVorT1l/preview?autoplay=1" frameborder="0" allow="autoplay"></iframe>
+    <iframe class="ok" id="videoPlayer" src="https://drive.google.com/file/d/1-RJ1FXrVp7CBXMtlf3jrS1kO7ZVorT1l/preview" frameborder="0"></iframe>
     <div class="btn" style="text-align: center;">
         <button onclick="playVideo('1-RJ1FXrVp7CBXMtlf3jrS1kO7ZVorT1l')">Episode 01</button>
         <button onclick="playVideo('1-3_OVRtqJTtlTW6CqGpGSMUNaAxhuh1d')">Episode 02</button>
@@ -86,7 +86,7 @@
     <script>
         function playVideo(videoId) {
             var iframe = document.getElementById('videoPlayer');
-            iframe.src = "https://drive.google.com/file/d/" + videoId + "/preview?autoplay=1";
+            iframe.src = "https://drive.google.com/file/d/" + videoId + "/preview";
         }
     </script>
 </body>
