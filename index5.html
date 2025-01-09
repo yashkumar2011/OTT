@@ -63,6 +63,11 @@
             margin-left: 20vw;
             margin-right: 20vw;
         }
+    #ful {
+        display: block;
+        margin: 1em auto;
+        
+    }
     </style>
 </head>
 <body>
@@ -82,6 +87,7 @@
         <button onclick="playVideo('1-My28d3nghAwbeCl86gNqRVTrQf4v8yh')">Episode 12</button>
         <button onclick="playVideo('1-0QaJJaQBY_f1WaZqGvW-6u1Lg0AilFO')">Episode 13</button>
     </div>
+    <button style="background-color: skyblue;" id="ful" onclick="toggleFullScreen()">Fullscreen</button>
 
     <script>
         function playVideo(videoId) {
@@ -93,6 +99,19 @@
         name = prompt("Enter your name (This is required to continue):");
     }
     alert("You fool burn in hell, " + name + ". you can't even do a formality!");
-    </script>
+    function toggleFullScreen() {
+    var iframe = document.getElementById('videoPlayer');
+    if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+    } else if (iframe.mozRequestFullScreen) { // Firefox
+        iframe.mozRequestFullScreen();
+    } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) { // IE/Edge
+        iframe.msRequestFullscreen();
+    }
+}
+
+   </script>
 </body>
 </html>
