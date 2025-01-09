@@ -3,57 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spark Session 2</title>
+    <title>Document</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
+        }
+        .ok {
+            width: 50vw;
+            height: 45vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            margin: auto;
+            margin-top: 5%;
+            border: 7px solid pink;
+            border-radius: 15px;
         }
-        .media-player {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+        a {
+            text-decoration: none;
+            color: white;
         }
-        .video-controls {
-            margin-top: 10px;
-        }
-        .video-controls button {
-            background-color: #007bff;
-            color: #fff;
+        button {
             border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
+            padding: 0.7em;
+            border-radius: 10px;
+            background: radial-gradient(circle, #fc466b, #3f5efb);
+            margin: 0.5em;
+            font-size: 1em;
             cursor: pointer;
-            font-size: 16px;
         }
-        .video-controls button:hover {
-            background-color: #0056b3;
+        button:hover {
+            background: radial-gradient(circle, #3f5efb, #fc466b);
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .ok {
+                width: 90vw;
+                height: 40vh;
+            }
+            button {
+                padding: 1em;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ok {
+                width: 95vw;
+                height: 35vh;
+            }
+            button {
+                padding: 0.8em;
+                font-size: 0.9em;
+            }
+        }
+        
+        .btn {
+            margin-left: 20vw;
+            margin-right: 20vw;
         }
     </style>
 </head>
 <body>
-    <div class="media-player">
-        <video id="videoPlayer" width="640" height="360" controls>
-            <source src="https://drive.google.com/uc?export=download&id=YOUR_VIDEO_PART_1_ID" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-controls">
-            <button onclick="playVideo('https://drive.google.com/uc?export=download&id=YOUR_VIDEO_PART_2_ID')">Play Next Video</button>
-        </div>
+    <iframe class="ok" id="videoPlayer" src="https://drive.google.com/file/d/1-RJ1FXrVp7CBXMtlf3jrS1kO7ZVorT1l/preview?autoplay=1" frameborder="0" allow="autoplay"></iframe>
+    <div class="btn" style="text-align: center;">
+        <button onclick="playVideo('1-RJ1FXrVp7CBXMtlf3jrS1kO7ZVorT1l')">Episode 01</button>
+        <button onclick="playVideo('1-3_OVRtqJTtlTW6CqGpGSMUNaAxhuh1d')">Episode 02</button>
+        <button onclick="playVideo('1-AiJpZVg4VMBo1dWkNIw2sLsFfHH08Le')">Episode 03</button>
+        <button onclick="playVideo('1-B1lRJcJ8g2nzzNoJ59LW0rMuFBY8j8J')">Episode 04</button>
+        <button onclick="playVideo('1-D35zxkztIBzhANUrIhqYgnyQ2VdgmEV')">Episode 05</button>
+        <button onclick="playVideo('1-EcNRDztRjPAgulaoP6eHgoVK03xDL_4')">Episode 06</button>
+        <button onclick="playVideo('1-Ni1HkbPj-wARW1xLpjAEDhDc-0PQNem')">Episode 07</button>
+        <button onclick="playVideo('1-FxqsggDiKjVR6qF4qeOry5sVu5fIN18')">Episode 08</button>
+        <button onclick="playVideo('1-J1lXrymAekLoCLyNCZUtzHWRXz0FsqV')">Episode 09</button>
+        <button onclick="playVideo('1-KKF6DUKoISSlhEeGBgHuYCY_k-XAYYu')">Episode 10</button>
+        <button onclick="playVideo('1-L6jPyNeZNJHxZwOna3bF0sa9m1tdrnt')">Episode 11</button>
+        <button onclick="playVideo('1-My28d3nghAwbeCl86gNqRVTrQf4v8yh')">Episode 12</button>
+        <button onclick="playVideo('1-0QaJJaQBY_f1WaZqGvW-6u1Lg0AilFO')">Episode 13</button>
     </div>
+
     <script>
-        function playVideo(url) {
-            var videoPlayer = document.getElementById('videoPlayer');
-            videoPlayer.src = url;
-            videoPlayer.play();
+        function playVideo(videoId) {
+            var iframe = document.getElementById('videoPlayer');
+            iframe.src = "https://drive.google.com/file/d/" + videoId + "/preview?autoplay=1";
         }
     </script>
 </body>
