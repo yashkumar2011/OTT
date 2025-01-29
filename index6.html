@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Watch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1c1c1c;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ff4c4c;
+        }
+
+        .video-container {
+            width: 80%;
+            max-width: 900px;
+            margin: auto;
+            aspect-ratio: 16 / 9;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.5);
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #ff4c4c;
+            color: white;
+            border: 2px solid transparent;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #d13434;
+            border-color: #ff4c4c;
+            box-shadow: 0px 0px 10px rgba(255, 76, 76, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Stream Blue Box For Free! Thanks to Yash Bhaiya !!</h1>
+
+    <div class="video-container">
+        <iframe id="videoPlayer" src="https://drive.google.com/file/d/1--s2u8sPSbJQysG_PNL1PmJIPFpTi9mu/preview"
+            allowfullscreen></iframe>
+    </div>
+
+    <div class="buttons" id="episodeButtons"></div>
+
+    <script>
+        const episodeLinks = {
+            1: "https://drive.google.com/file/d/1--s2u8sPSbJQysG_PNL1PmJIPFpTi9mu/preview",
+            2: "https://drive.google.com/file/d/1-ea0REAXu71YUyqpQ6aUg-tXUxzNg4wv/preview",
+            3: "https://drive.google.com/file/d/1-gln4b3LxQ4r_I8XG1Ed-fovMy1MNZ1_/preview",
+            4: "https://drive.google.com/file/d/1-hRYO-yLUFozaDh4WoAA5ARenSaxBevP/preview",
+            5: "https://drive.google.com/file/d/1-jk4EjD0_nPBIoC2TuMGh1A3xP7uDg-H/preview",
+            6: "https://drive.google.com/file/d/1-mB9biDL6OMpt5FY-Jv79OIRQg4jw4f5/preview",
+            7: "https://drive.google.com/file/d/1-oF6gbAywDqPtQ_MRTkA7UHX2Tyg43H6/preview",
+            8: "https://drive.google.com/file/d/1-ryQ-zWSSBGmE0adz1-YWHezgaTwz-tW/preview",
+            9: "https://drive.google.com/file/d/100B1xqQ3MC1JtJNxC3wP2yH3otwNnxpw/preview",
+            10: "https://drive.google.com/file/d/1--v-ziSerI6wgXB9HdZUWjnEw_J3XIEn/preview",
+            11: "https://drive.google.com/file/d/1-1ucF5EtmjxHgOccpMM3kzMJgRB2H231/preview",
+            12: "https://drive.google.com/file/d/1-95D5t_dAE1flx4eWTfpG6CGppByioF0/preview",
+            13: "https://drive.google.com/file/d/1-J7tNZOGUAuL33haueju2x9L8ZuWVaqG/preview",
+            14: "https://drive.google.com/file/d/1-NCarfvQL033TBrGGpuwepRSVuWcxJDV/preview",
+            15: "https://drive.google.com/file/d/1-TUZN7gVPMRHfRlVBUYbtgI9AMoDoJTD/preview",
+            16: "https://drive.google.com/file/d/1-TevBuKlCDA5W0WhNbgEo32vdpj3T-6c/preview",
+            17: "https://drive.google.com/file/d/1-VTKk_Be-9aI_6C1tgQ6dez-3WBEmCYQ/preview"
+        };
+
+        function changeEpisode(ep) {
+            document.getElementById('videoPlayer').src = episodeLinks[ep];
+        }
+
+        // Generate Episode Buttons
+        const buttonsContainer = document.getElementById("episodeButtons");
+        for (let i = 1; i <= 17; i++) {
+            const btn = document.createElement("button");
+            btn.innerText = `Episode ${i}`;
+            btn.onclick = () => changeEpisode(i);
+            buttonsContainer.appendChild(btn);
+        }
+    </script>
+
+</body>
+
+</html>
